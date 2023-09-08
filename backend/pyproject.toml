@@ -12,6 +12,9 @@ django = "4.2.5"
 pytest = "7.4.2"
 pytest-django = "4.5.2"
 pytest-cov = "4.1.0"
+flake8 = "6.1.0"
+black = "23.7.0"
+flake8-django = "1.4"
 
 
 [build-system]
@@ -36,4 +39,27 @@ slow = "Run slow unit test e.g. for models"
 unit = "Run unit tests"
 smoke = "Run core unit tests"
 dbtest = "Run databasepoerty tests"
+
+
+[tool.black]
+line-length = 120
+target-version = ['py311']
+include = '\.pyi?$'
+extend-exclude = '''
+/(
+    | \git/ # exclude a directory
+    | \.mypy_cache/ # exclude a directory
+    | \.pytest_cache/ # exclude a directory
+    | .*\.pyi? # excluded generated files
+    | .*\.json # excluded netadata files
+    | .*\.md # excluded documentation
+    | .*\.toml # excluded configurationa files
+    | .*\.yaml # excluded configurationa files
+    | .*\.yml # excluded configurationa files
+    | .*\.txt # excluded configurationa files
+    | .*\.lock # excluded configurationa files
+    | .*\.sh # excluded configurationa files
+    | .*\.log # excluded configurationa files
+)/
+'''
 
