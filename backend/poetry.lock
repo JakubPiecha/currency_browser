@@ -183,6 +183,37 @@ argon2 = ["argon2-cffi (>=19.1.0)"]
 bcrypt = ["bcrypt"]
 
 [[package]]
+name = "django-haystack"
+version = "3.2.1"
+description = "Pluggable search for Django."
+optional = false
+python-versions = "*"
+files = [
+    {file = "django-haystack-3.2.1.tar.gz", hash = "sha256:97e3197aefc225fe405b6f17600a2534bf827cb4d6743130c20bc1a06f7293a4"},
+]
+
+[package.dependencies]
+Django = ">=2.2"
+
+[package.extras]
+elasticsearch = ["elasticsearch (>=5,<8)"]
+
+[[package]]
+name = "django-sphinxdoc"
+version = "2.0.0"
+description = "Easily integrate Sphinx documentation into your website."
+optional = false
+python-versions = ">=3.6"
+files = [
+    {file = "django-sphinxdoc-2.0.0.tar.gz", hash = "sha256:f2840cbe7186acec4558fbeb2a6d7dfb64d25b9784e6840fadd32e1ccf1f9e37"},
+    {file = "django_sphinxdoc-2.0.0-py2.py3-none-any.whl", hash = "sha256:ac0ab76366e66e9ce7e46eaccb2f91b386d9c0da53c9ab15e802352c76e6747b"},
+]
+
+[package.dependencies]
+Django = ">=2.0"
+django-haystack = ">=2.8.0"
+
+[[package]]
 name = "flake8"
 version = "6.1.0"
 description = "the modular source code checker: pep8 pyflakes and co"
@@ -534,4 +565,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.11"
-content-hash = "080561e1234395b332712df5c37148b5b3eacf58499a06840a4059335cfefad7"
+content-hash = "78a2f45ffb4fa1ee6cc7c2645f5b950af3284291c4f67e78605d88eec7586cc5"
