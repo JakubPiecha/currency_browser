@@ -1,3 +1,7 @@
 from django.contrib import admin
 
-# Register your models here.
+from . import models
+
+admin.site.register(models.CurrencyValue)
+admin.site.register(models.CurrencyName)
+admin.site.register(models.CurrencyDate)
