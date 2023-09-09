@@ -35,3 +35,4 @@ class CurrencyValue(models.Model):
     class Meta:
         verbose_name = "Currency value"
         verbose_name_plural = "Currency values"
+        # unique_together = ("currency_names", "currency_dates")
