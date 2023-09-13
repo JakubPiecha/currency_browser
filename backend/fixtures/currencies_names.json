@@ -1,7 +1,7 @@
 [
   {
     "model": "currency.currencyname",
-    "pk": 1,
+    "pk": 33,
     "fields": {
       "name": "dolar ameryka�ski",
       "code": "USD"
@@ -9,7 +9,7 @@
   },
   {
     "model": "currency.currencyname",
-    "pk": 2,
+    "pk": 34,
     "fields": {
       "name": "dolar australijski",
       "code": "AUD"
@@ -17,7 +17,7 @@
   },
   {
     "model": "currency.currencyname",
-    "pk": 3,
+    "pk": 35,
     "fields": {
       "name": "dolar Hongkongu",
       "code": "HKD"
@@ -25,7 +25,7 @@
   },
   {
     "model": "currency.currencyname",
-    "pk": 4,
+    "pk": 36,
     "fields": {
       "name": "dolar kanadyjski",
       "code": "CAD"
@@ -33,7 +33,7 @@
   },
   {
     "model": "currency.currencyname",
-    "pk": 5,
+    "pk": 37,
     "fields": {
       "name": "dolar nowozelandzki",
       "code": "NZD"
@@ -41,7 +41,7 @@
   },
   {
     "model": "currency.currencyname",
-    "pk": 6,
+    "pk": 38,
     "fields": {
       "name": "dolar singapurski",
       "code": "SGD"
@@ -49,7 +49,7 @@
   },
   {
     "model": "currency.currencyname",
-    "pk": 7,
+    "pk": 39,
     "fields": {
       "name": "euro",
       "code": "EUR"
@@ -57,7 +57,7 @@
   },
   {
     "model": "currency.currencyname",
-    "pk": 8,
+    "pk": 40,
     "fields": {
       "name": "forint (W�gry)",
       "code": "HUF"
@@ -65,7 +65,7 @@
   },
   {
     "model": "currency.currencyname",
-    "pk": 9,
+    "pk": 41,
     "fields": {
       "name": "frank szwajcarski",
       "code": "CHF"
@@ -73,7 +73,7 @@
   },
   {
     "model": "currency.currencyname",
-    "pk": 10,
+    "pk": 42,
     "fields": {
       "name": "funt szterling",
       "code": "GBP"
@@ -81,7 +81,7 @@
   },
   {
     "model": "currency.currencyname",
-    "pk": 11,
+    "pk": 43,
     "fields": {
       "name": "hrywna (Ukraina)",
       "code": "UAH"
@@ -89,7 +89,7 @@
   },
   {
     "model": "currency.currencyname",
-    "pk": 12,
+    "pk": 44,
     "fields": {
       "name": "jen (Japonia)",
       "code": "JPY"
@@ -97,7 +97,7 @@
   },
   {
     "model": "currency.currencyname",
-    "pk": 13,
+    "pk": 45,
     "fields": {
       "name": "korona czeska",
       "code": "CZK"
@@ -105,15 +105,15 @@
   },
   {
     "model": "currency.currencyname",
-    "pk": 14,
+    "pk": 46,
     "fields": {
-      "name": "korona du�ska",
+      "name": "korona duNska",
       "code": "DKK"
     }
   },
   {
     "model": "currency.currencyname",
-    "pk": 15,
+    "pk": 47,
     "fields": {
       "name": "korona islandzka",
       "code": "ISK"
@@ -121,7 +121,7 @@
   },
   {
     "model": "currency.currencyname",
-    "pk": 16,
+    "pk": 48,
     "fields": {
       "name": "korona norweska",
       "code": "NOK"
@@ -129,7 +129,7 @@
   },
   {
     "model": "currency.currencyname",
-    "pk": 17,
+    "pk": 49,
     "fields": {
       "name": "korona szwedzka",
       "code": "SEK"
@@ -137,7 +137,7 @@
   },
   {
     "model": "currency.currencyname",
-    "pk": 18,
+    "pk": 50,
     "fields": {
       "name": "lej rumu�ski",
       "code": "RON"
@@ -145,7 +145,7 @@
   },
   {
     "model": "currency.currencyname",
-    "pk": 19,
+    "pk": 51,
     "fields": {
       "name": "lew (Bu�garia)",
       "code": "BGN"
@@ -153,7 +153,7 @@
   },
   {
     "model": "currency.currencyname",
-    "pk": 20,
+    "pk": 52,
     "fields": {
       "name": "lira turecka",
       "code": "TRY"
@@ -161,7 +161,7 @@
   },
   {
     "model": "currency.currencyname",
-    "pk": 21,
+    "pk": 53,
     "fields": {
       "name": "nowy izraelski szekel",
       "code": "ILS"
@@ -169,7 +169,7 @@
   },
   {
     "model": "currency.currencyname",
-    "pk": 22,
+    "pk": 54,
     "fields": {
       "name": "peso chilijskie",
       "code": "CLP"
@@ -177,7 +177,7 @@
   },
   {
     "model": "currency.currencyname",
-    "pk": 23,
+    "pk": 55,
     "fields": {
       "name": "peso filipi�skie",
       "code": "PHP"
@@ -185,7 +185,7 @@
   },
   {
     "model": "currency.currencyname",
-    "pk": 24,
+    "pk": 56,
     "fields": {
       "name": "peso meksyka�skie",
       "code": "MXN"
@@ -193,7 +193,7 @@
   },
   {
     "model": "currency.currencyname",
-    "pk": 25,
+    "pk": 57,
     "fields": {
       "name": "rand (Republika Po�udniowej Afryki)",
       "code": "ZAR"
@@ -201,7 +201,7 @@
   },
   {
     "model": "currency.currencyname",
-    "pk": 26,
+    "pk": 58,
     "fields": {
       "name": "real (Brazylia)",
       "code": "BRL"
@@ -209,7 +209,7 @@
   },
   {
     "model": "currency.currencyname",
-    "pk": 27,
+    "pk": 59,
     "fields": {
       "name": "ringgit (Malezja)",
       "code": "MYR"
@@ -217,7 +217,7 @@
   },
   {
     "model": "currency.currencyname",
-    "pk": 28,
+    "pk": 60,
     "fields": {
       "name": "rupia indonezyjska",
       "code": "IDR"
@@ -225,7 +225,7 @@
   },
   {
     "model": "currency.currencyname",
-    "pk": 29,
+    "pk": 61,
     "fields": {
       "name": "rupia indyjska",
       "code": "INR"
@@ -233,7 +233,7 @@
   },
   {
     "model": "currency.currencyname",
-    "pk": 30,
+    "pk": 62,
     "fields": {
       "name": "won po�udniowokorea�ski",
       "code": "KRW"
@@ -241,7 +241,7 @@
   },
   {
     "model": "currency.currencyname",
-    "pk": 31,
+    "pk": 63,
     "fields": {
       "name": "yuan renminbi (Chiny)",
       "code": "CNY"
@@ -249,10 +249,18 @@
   },
   {
     "model": "currency.currencyname",
-    "pk": 32,
+    "pk": 64,
     "fields": {
       "name": "SDR (MFW)",
       "code": "XDR"
     }
-  }
+  },
+  {
+    "model": "currency.currencyname",
+    "pk": 65,
+    "fields": {
+      "name": "bat (Tajlandia)",
+      "code": "THB"
+    }
+   }
 ]

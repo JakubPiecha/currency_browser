@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+</head>
+<body>
+<form action="" method="POST">
+    {% csrf_token %}
+    {{ form }}
+    <button type="submit">Submit</button>
+
+</form>
+<div style="width: 800px;">
+    <canvas id="currencyChart"></canvas>
+</div>
+<pre>
+    {% for day in dates %}
+
+        {{ day.currency_date.date }} - {{ day.exchange_rate }} - {{ day.currency_name.name }}
+    {% endfor %}
+</pre>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    (async function () {
+        const data = {{data|safe}};
+
+        new Chart(
+            document.getElementById('currencyChart'),
+            {
+                type: 'line',
+                data: data,
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                        },
+                        title: {
+                            display: true,
+                            text: 'Currency exchange rate'
+                        }
+                    },
+                    scales: {
+                        y: [{
+                            ticks:{
+                            min: 0,
+                            max: 10,
+                            },
+
+                        }]
+                    }
+                },
+            }
+        );
+    })();
+
+</script>
+</body>
+</html>
