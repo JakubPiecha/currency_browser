@@ -9,7 +9,7 @@
 
 </head>
 <body>
-<form action="" method="POST">
+<form action="" method="POST" id="currencyForm">
     {% csrf_token %}
     {{ form }}
     <button type="submit">Submit</button>
@@ -18,47 +18,150 @@
 <div style="width: 800px;">
     <canvas id="currencyChart"></canvas>
 </div>
-<pre>
-    {% for day in dates %}
-
-        {{ day.currency_date.date }} - {{ day.exchange_rate }} - {{ day.currency_name.name }}
-    {% endfor %}
-</pre>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
-    (async function () {
-        const data = {{data|safe}};
+let responseData = null; // Zmienna do przechowywania danych odpowiedzi
 
-        new Chart(
-            document.getElementById('currencyChart'),
-            {
-                type: 'line',
-                data: data,
-                options: {
-                    responsive: true,
-                    plugins: {
-                        legend: {
-                            position: 'top',
-                        },
-                        title: {
-                            display: true,
-                            text: 'Currency exchange rate'
-                        }
+// Funkcja do inicjacji początkowego wykresu
+function initializeChart() {
+    return new Chart(
+        document.getElementById('currencyChart'),
+        {
+            type: 'line',
+            data: {
+                labels: [], // Początkowo puste etykiety (daty)
+                datasets: [] // Początkowo pusty wykres
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'top',
                     },
-                    scales: {
-                        y: [{
-                            ticks:{
-                            min: 0,
-                            max: 10,
-                            },
-
-                        }]
+                    title: {
+                        display: true,
+                        text: 'Currency exchange rate'
                     }
                 },
-            }
-        );
-    })();
+                scales: {
+                    y: {
+                        min: 0,
+                        max: 7,
+                        ticks: {
+                            stepSize: 0.01
+                        },
+                    }
+                }
+            },
+        }
+    );
+}
+
+// Inicjacja początkowego wykresu
+let currencyChart = initializeChart();
+
+// Funkcja do aktualizacji wykresu na podstawie zaznaczonych walut i danych
+function updateChart(selectedCurrencies, data) {
+    // Ustalamy jedną wspólną listę etykiet (daty)
+    const labels = data.labels;
+
+    // Zainicjuj puste zestawy danych
+    const datasets = [];
+
+    // Przetwórz dane dla każdej zaznaczonej waluty
+    selectedCurrencies.forEach(currencyCode => {
+        const currencyData = data.datasets.find(dataset => dataset.label === currencyCode);
+
+        if (currencyData) {
+            // Dodaj zestaw danych
+            datasets.push({
+                label: currencyCode,
+                data: currencyData.data,
+                borderColor: getRandomColor(),
+                fill: false
+            });
+        }
+    });
+
+    // Aktualizuj dane wykresu
+    currencyChart.data.labels = labels;
+    currencyChart.data.datasets = datasets;
+    currencyChart.update();
+}
+
+// Funkcja do pobierania zaznaczonych walut i aktualizacji wykresu
+function handleCheckboxChange() {
+    const selectedCurrencies = getSelectedCurrencies();
+    if (responseData) {
+        // Aktualizuj wykres na podstawie zaznaczonych walut i danych
+        updateChart(selectedCurrencies, responseData);
+    }
+}
+
+// Funkcja do pobierania zaznaczonych walut
+function getSelectedCurrencies() {
+    const checkboxes = document.querySelectorAll('input[name="currency"]');
+    const selectedCurrencies = Array.from(checkboxes)
+        .filter(checkbox => checkbox.checked)
+        .map(checkbox => checkbox.value);
+    return selectedCurrencies;
+}
+
+// Funkcja do generowania losowego koloru
+function getRandomColor() {
+    const letters = '0123456789ABCDEF';
+    let color = '#';
+    for (let i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+}
+
+// Nasłuchuj zdarzenia zmiany zaznaczenia checkboxa
+const checkboxes = document.querySelectorAll('input[name="currency"]');
+checkboxes.forEach(checkbox => {
+    checkbox.addEventListener('change', () => {
+        handleCheckboxChange();
+    });
+});
+
+// Obsługa wysłania formularza i pobrania danych
+const form = document.querySelector("#currencyForm");
+form.addEventListener("submit", async (event) => {
+    event.preventDefault();
+
+    const startDateInput = document.querySelector("#id_start_date");
+    const endDateInput = document.querySelector("#id_end_date");
+
+    try {
+        const response = await fetch('/currencies/', {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                'start_date': startDateInput.value,
+                'end_date': endDateInput.value,
+                'currencies': getSelectedCurrencies()
+            })
+        });
+
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+
+        responseData = await response.json(); // Zapisz dane odpowiedzi
+
+        // Aktualizuj wykres na podstawie danych odpowiedzi
+        if (responseData) {
+            updateChart(getSelectedCurrencies(), responseData);
+        }
+    } catch (error) {
+        console.error('Wystąpił błąd podczas pobierania lub renderowania danych:', error);
+    }
+});
+
 
 </script>
 </body>
